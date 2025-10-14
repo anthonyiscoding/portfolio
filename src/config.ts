@@ -3,6 +3,7 @@ export const siteConfig = {
   title: "Developer Relations & Community Engineer",
   description: "Portfolio website of Anthony Lusardi",
   accentColor: "#1d4ed8",
+  secondaryAccentColor:"#e2882e",
   social: {
     email: null,
     linkedin: "https://linkedin.com/in/alusardi",
@@ -10,7 +11,7 @@ export const siteConfig = {
     github: "https://github.com/anthonyiscoding",
   },
   aboutMe:
-    "I love getting developers excited and making sure the communities and products I represent consistently wow them.",
+    "I love getting people excited and making sure the communities and products I represent consistently wow them.",
   skills: [
     "AI",
     "LLMs",
@@ -26,6 +27,8 @@ export const siteConfig = {
     "Postgres", 
     "MongoDB",
     "Docker",
+    "C# / .NET",
+    "And a whole bunch of other things"
   ],
   projects: [
     {
@@ -52,8 +55,8 @@ export const siteConfig = {
   ],
   experience: [
     {
-      company: "Captivate",
-      title: "Consulting",
+      company: "Captivate.dev",
+      title: "AI & DevRel Engineering",
       dateRange: "July 2025 - Present",
       bullets: [
         "Building AI-based solutions for clients that turn unstructured text data into actionable and effective tools",
@@ -97,7 +100,7 @@ export const siteConfig = {
       dateRange: "Apr 2015 - Jan 2020", 
       bullets: [
         "Developed and delivered robotic process automation (RPA) solutions for national and international clients",
-        "Grew revenue to $150k/year through effective stakeholder management and consistent delivery of high-value solutions",
+        "Strong year over year revenue growth through effective stakeholder management and consistent delivery of high-value solutions",
         "Led internationally distributed teams on a per-project basis, managing the entire program lifecycle from client acquisition to final delivery and support",
       ],
     },
