@@ -37,6 +37,58 @@ import "../styles/global.css";
         style={`background: radial-gradient(ellipse 800px 1200px at 0% 0%, ${siteConfig.accentColor}40 0%, ${siteConfig.accentColor}25 20%, ${siteConfig.accentColor}10 40%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0.8) 90%, white 100%)`}
       >
       </div>
+      <!-- Animated line with spark -->
+      <svg
+        id="animated-line"
+        class="absolute top-0 left-0 -z-10 pointer-events-none"
+        style="width: 100%; height: 100%;"
+      >
+        <defs>
+          <linearGradient id="line-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop
+              offset="0%"
+              style={`stop-color:${siteConfig.accentColor};stop-opacity:0.3`}
+            ></stop>
+            <stop
+              offset="100%"
+              style={`stop-color:${siteConfig.accentColor};stop-opacity:0.9`}
+            ></stop>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"
+            ></feGaussianBlur>
+            <feMerge>
+              <feMergeNode in="coloredBlur"></feMergeNode>
+              <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+          </filter>
+        </defs>
+        <path
+          id="line-path"
+          d="M 0,0"
+          stroke="url(#line-gradient)"
+          stroke-width="2"
+          fill="none"
+          filter="url(#glow)"></path>
+        <circle
+          id="spark"
+          r="4"
+          fill={siteConfig.accentColor}
+          filter="url(#glow)"
+          opacity="0"
+        >
+          <animate
+            attributeName="r"
+            values="3;5;3"
+            dur="0.6s"
+            repeatCount="indefinite"></animate>
+          <animate
+            attributeName="opacity"
+            values="0.6;1;0.6"
+            dur="0.6s"
+            repeatCount="indefinite"></animate>
+        </circle>
+      </svg>
       <svg
         aria-hidden="true"
         class="fixed inset-0 -z-10 size-full stroke-gray-300 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
@@ -150,6 +202,8 @@ import "../styles/global.css";
     </div>
     <script define:vars={{ accentColor: siteConfig.accentColor }}>
       const gradientOverlay = document.getElementById("gradient-overlay");
+      const linePath = document.getElementById("line-path");
+      const spark = document.getElementById("spark");
 
       let mouseX = 0;
       let mouseY = 0;
@@ -210,7 +264,89 @@ import "../styles/global.css";
           window.scrollY /
           (document.documentElement.scrollHeight - window.innerHeight);
         updateGradient();
+        updateLine();
       });
+
+      function updateLine() {
+        if (!linePath || !spark) return;
+
+        const svgWidth = window.innerWidth;
+        const totalDocHeight = document.documentElement.scrollHeight;
+
+        // Update SVG height to match document
+        const svg = document.getElementById("animated-line");
+        if (svg) {
+          svg.style.height = `${totalDocHeight}px`;
+        }
+
+        const startX = 24;
+        const startY = 0;
+
+        // Define segment sizes for the zigzag pattern
+        const horizontalSegment = svgWidth * 0.1; // How far left/right each horizontal segment goes
+        const verticalSegment = horizontalSegment * 5; // 5x horizontal for more vertical movement
+
+        // Calculate total length to draw based on scroll position
+        // Start with at least window height so line is visible initially
+        const totalLength = window.scrollY + window.innerHeight;
+
+        let pathData = `M ${startX},${startY}`;
+        let currentX = startX;
+        let currentY = startY;
+        let remainingLength = totalLength;
+        let segmentIndex = 0;
+        let endX = startX;
+        let endY = startY;
+
+        // Build the zigzag path: down → right → down → left → down → right → ...
+        while (remainingLength > 0 && segmentIndex < 100) {
+          const segment = segmentIndex % 4;
+
+          if (segment === 0 || segment === 2) {
+            // Vertical segments (down)
+            const segmentLength = Math.min(remainingLength, verticalSegment);
+            if (segmentLength > 0) {
+              currentY += segmentLength;
+              pathData += ` L ${currentX},${currentY}`;
+              endX = currentX;
+              endY = currentY;
+              remainingLength -= segmentLength;
+            }
+          } else if (segment === 1) {
+            // Horizontal segment (right)
+            const segmentLength = Math.min(remainingLength, horizontalSegment);
+            if (segmentLength > 0) {
+              currentX += segmentLength;
+              pathData += ` L ${currentX},${currentY}`;
+              endX = currentX;
+              endY = currentY;
+              remainingLength -= segmentLength;
+            }
+          } else if (segment === 3) {
+            // Horizontal segment (left)
+            const segmentLength = Math.min(remainingLength, horizontalSegment);
+            if (segmentLength > 0) {
+              currentX -= segmentLength;
+              pathData += ` L ${currentX},${currentY}`;
+              endX = currentX;
+              endY = currentY;
+              remainingLength -= segmentLength;
+            }
+          }
+
+          segmentIndex++;
+        }
+
+        linePath.setAttribute("d", pathData);
+
+        // Position spark at the end of the line
+        spark.setAttribute("cx", endX);
+        spark.setAttribute("cy", endY);
+        spark.setAttribute(
+          "opacity",
+          scrollAmount > 0 || window.scrollY > 0 ? "1" : "0"
+        );
+      }
 
       function updateGradient() {
         if (gradientOverlay) {
@@ -241,6 +377,9 @@ import "../styles/global.css";
           gradientOverlay.style.background = `radial-gradient(ellipse ${ellipseWidth}px ${ellipseHeight}px at ${xPercent}% ${yPercent}%, ${color1} 0%, ${color2} 20%, ${color3} 40%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0.8) 90%, white 100%)`;
         }
       }
+
+      // Initialize line on load
+      updateLine();
     </script>
   </body>
 </html>
