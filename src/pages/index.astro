@@ -43,16 +43,6 @@ import "../styles/global.css";
       >
         <defs>
           <pattern
-            x="50%"
-            y={-1}
-            id="gradient-1"
-            width={200}
-            height={200}
-            patternUnits="userSpaceOnUse"
-          >
-            <path d="M.5 200V.5H200" fill="none"></path>
-          </pattern>
-          <pattern
             id="programming-symbols"
             x="0"
             y="0"
@@ -147,11 +137,6 @@ import "../styles/global.css";
           width="100%"
           height="100%"
           opacity="0.2"></rect>
-        <rect
-          fill="url(#gradient-1)"
-          width="100%"
-          height="100%"
-          stroke-width={0}></rect>
       </svg>
       <Header />
       <section>
@@ -249,15 +234,9 @@ import "../styles/global.css";
           const hueShift = scrollAmount * 360 + (mouseX + mouseY) * 5;
           const newHue = (baseHSL.h + hueShift) % 360;
 
-          // Brightness increases with scroll: starts at 0.15/0.1/0.05, ends at 0.35/0.22/0.12
-          const brightnessBoost = scrollAmount * 0.5; // 0 to 0.5
-          const opacity1 = 0.15 + brightnessBoost * 0.4; // 0.15 to 0.35
-          const opacity2 = 0.1 + brightnessBoost * 0.24; // 0.1 to 0.22
-          const opacity3 = 0.05 + brightnessBoost * 0.14; // 0.05 to 0.12
-
-          const color1 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, ${opacity1})`;
-          const color2 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, ${opacity2})`;
-          const color3 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, ${opacity3})`;
+          const color1 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, 0.4)`;
+          const color2 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, 0.25)`;
+          const color3 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, 0.1)`;
 
           gradientOverlay.style.background = `radial-gradient(ellipse ${ellipseWidth}px ${ellipseHeight}px at ${xPercent}% ${yPercent}%, ${color1} 0%, ${color2} 20%, ${color3} 40%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0.8) 90%, white 100%)`;
         }
