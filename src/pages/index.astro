@@ -32,7 +32,8 @@ import "../styles/global.css";
     >
       <!-- Gradient overlay -->
       <div
-        class="fixed inset-0 -z-10"
+        id="gradient-overlay"
+        class="fixed inset-0 -z-10 transition-all duration-300 ease-out"
         style={`background: radial-gradient(ellipse 800px 1200px at 0% 0%, ${siteConfig.accentColor}40 0%, ${siteConfig.accentColor}25 20%, ${siteConfig.accentColor}10 40%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0.8) 90%, white 100%)`}
       >
       </div>
@@ -162,5 +163,87 @@ import "../styles/global.css";
       </section>
       <Footer />
     </div>
+    <script define:vars={{ accentColor: siteConfig.accentColor }}>
+      const gradientOverlay = document.getElementById("gradient-overlay");
+
+      let mouseX = 0;
+      let mouseY = 0;
+      let scrollAmount = 0;
+
+      // Convert hex to HSL
+      function hexToHSL(hex) {
+        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        if (!result) return { h: 210, s: 100, l: 50 }; // default blue
+
+        let r = parseInt(result[1], 16) / 255;
+        let g = parseInt(result[2], 16) / 255;
+        let b = parseInt(result[3], 16) / 255;
+
+        const max = Math.max(r, g, b);
+        const min = Math.min(r, g, b);
+        let h,
+          s,
+          l = (max + min) / 2;
+
+        if (max === min) {
+          h = s = 0;
+        } else {
+          const d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch (max) {
+            case r:
+              h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+              break;
+            case g:
+              h = ((b - r) / d + 2) / 6;
+              break;
+            case b:
+              h = ((r - g) / d + 4) / 6;
+              break;
+          }
+        }
+
+        return {
+          h: Math.round(h * 360),
+          s: Math.round(s * 100),
+          l: Math.round(l * 100),
+        };
+      }
+
+      const baseHSL = hexToHSL(accentColor);
+
+      // Mouse move handler
+      document.addEventListener("mousemove", (e) => {
+        mouseX = (e.clientX / window.innerWidth) * 5;
+        mouseY = (e.clientY / window.innerHeight) * 5;
+        updateGradient();
+      });
+
+      // Scroll handler
+      document.addEventListener("scroll", () => {
+        scrollAmount =
+          (window.scrollY / document.documentElement.scrollHeight) * 8;
+        updateGradient();
+      });
+
+      function updateGradient() {
+        if (gradientOverlay) {
+          const xPercent = mouseX + scrollAmount;
+          const yPercent = mouseY + scrollAmount;
+          const ellipseWidth = 800 + xPercent * 15;
+          const ellipseHeight = 1200 + yPercent * 15;
+
+          // Calculate hue rotation based on mouse and scroll position
+          const hueShift = ((mouseX + mouseY + scrollAmount) * 10) % 360;
+          const newHue = (baseHSL.h + hueShift) % 360;
+
+          const color1 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, 0.4)`;
+          const color2 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, 0.25)`;
+          const color3 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, 0.1)`;
+
+          gradientOverlay.style.background = `radial-gradient(ellipse ${ellipseWidth}px ${ellipseHeight}px at ${xPercent}% ${yPercent}%, ${color1} 0%, ${color2} 20%, ${color3} 40%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0.8) 90%, white 100%)`;
+        }
+      }
+    </script>
   </body>
 </html>
