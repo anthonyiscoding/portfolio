@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Anthony Lusardi",
-  title: "Developer Relations & Community Engineer",
+  title: "Community Engineer & Builder",
   description: "Portfolio website of Anthony Lusardi",
   accentColor: "#1d4ed8",
   secondaryAccentColor:"#e2882e",
