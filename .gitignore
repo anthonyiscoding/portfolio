@@ -26,3 +26,4 @@ pnpm-debug.log*
 *.pdf
 *.docx
 resumes/
+.vscode
