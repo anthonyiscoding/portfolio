@@ -10,8 +10,12 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
   id="header"
   class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
 >
-  <nav class="max-w-6xl mx-auto px-8 py-4">
-    <ul class="flex items-center gap-8 justify-center">
+  <nav class="max-w-6xl mx-auto px-8 py-4 relative">
+    <div
+      class="absolute inset-0 bg-white rounded-full"
+      style="mask-image: linear-gradient(to right, transparent 0%, white 15%, white 85%, transparent 100%), linear-gradient(to bottom, white 0%, white 70%, transparent 100%); mask-composite: intersect; -webkit-mask-image: linear-gradient(to right, transparent 0%, white 15%, white 85%, transparent 100%), linear-gradient(to bottom, white 0%, white 70%, transparent 100%); -webkit-mask-composite: source-in;"
+    ></div>
+    <ul class="flex items-center gap-8 justify-center relative z-10">
       <li>
         <a
           href="#about"
@@ -64,9 +68,9 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
   window.addEventListener("scroll", () => {
     const header = document.getElementById("header");
     if (window.scrollY > 100) {
-      header?.classList.add("bg-white/80", "backdrop-blur-sm");
+      header?.classList.add("backdrop-blur-sm");
     } else {
-      header?.classList.remove("bg-white/80", "backdrop-blur-sm");
+      header?.classList.remove("backdrop-blur-sm");
     }
   });
 </script>
