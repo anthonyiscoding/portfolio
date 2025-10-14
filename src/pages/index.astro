@@ -39,13 +39,13 @@ import "../styles/global.css";
       </div>
       <svg
         aria-hidden="true"
-        class="fixed inset-0 -z-10 size-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        class="fixed inset-0 -z-10 size-full stroke-gray-300 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
       >
         <defs>
           <pattern
             x="50%"
             y={-1}
-            id="0787a7c5-978c-4f66-83c7-11c213f99cb7"
+            id="gradient-1"
             width={200}
             height={200}
             patternUnits="userSpaceOnUse"
@@ -148,7 +148,7 @@ import "../styles/global.css";
           height="100%"
           opacity="0.2"></rect>
         <rect
-          fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
+          fill="url(#gradient-1)"
           width="100%"
           height="100%"
           stroke-width={0}></rect>
@@ -222,24 +222,42 @@ import "../styles/global.css";
       // Scroll handler
       document.addEventListener("scroll", () => {
         scrollAmount =
-          (window.scrollY / document.documentElement.scrollHeight) * 8;
+          window.scrollY /
+          (document.documentElement.scrollHeight - window.innerHeight);
         updateGradient();
       });
 
       function updateGradient() {
         if (gradientOverlay) {
-          const xPercent = mouseX + scrollAmount;
-          const yPercent = mouseY + scrollAmount;
-          const ellipseWidth = 800 + xPercent * 15;
-          const ellipseHeight = 1200 + yPercent * 15;
+          const xPercent = mouseX + scrollAmount * 8;
+          const yPercent = mouseY + scrollAmount * 8;
 
-          // Calculate hue rotation based on mouse and scroll position
-          const hueShift = ((mouseX + mouseY + scrollAmount) * 10) % 360;
+          // Create a wave that oscillates 3 times over the page scroll
+          // sin wave goes from -1 to 1, we convert to 0.7 to 1.3 for size multiplier
+          const wavePhase = scrollAmount * Math.PI * 6; // 3 full cycles (6π)
+          const sizeMultiplier = 1 + Math.sin(wavePhase) * 0.3; // Oscillates between 0.7 and 1.3
+
+          // Add mouse influence to the wave
+          const mouseWave = Math.sin((mouseX + mouseY) * 0.5) * 0.1;
+          const finalMultiplier = sizeMultiplier + mouseWave;
+
+          const ellipseWidth = (800 + xPercent * 15) * finalMultiplier;
+          const ellipseHeight = (1200 + yPercent * 15) * finalMultiplier;
+
+          // Calculate hue rotation: full 360° cycle based on scroll progress (0 to 1)
+          // Add small mouse influence for interactive feel
+          const hueShift = scrollAmount * 360 + (mouseX + mouseY) * 5;
           const newHue = (baseHSL.h + hueShift) % 360;
 
-          const color1 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, 0.4)`;
-          const color2 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, 0.25)`;
-          const color3 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, 0.1)`;
+          // Brightness increases with scroll: starts at 0.15/0.1/0.05, ends at 0.35/0.22/0.12
+          const brightnessBoost = scrollAmount * 0.5; // 0 to 0.5
+          const opacity1 = 0.15 + brightnessBoost * 0.4; // 0.15 to 0.35
+          const opacity2 = 0.1 + brightnessBoost * 0.24; // 0.1 to 0.22
+          const opacity3 = 0.05 + brightnessBoost * 0.14; // 0.05 to 0.12
+
+          const color1 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, ${opacity1})`;
+          const color2 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, ${opacity2})`;
+          const color3 = `hsla(${newHue}, ${baseHSL.s}%, ${baseHSL.l}%, ${opacity3})`;
 
           gradientOverlay.style.background = `radial-gradient(ellipse ${ellipseWidth}px ${ellipseHeight}px at ${xPercent}% ${yPercent}%, ${color1} 0%, ${color2} 20%, ${color3} 40%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0.8) 90%, white 100%)`;
         }
