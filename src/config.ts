@@ -10,22 +10,22 @@ export const siteConfig = {
     github: "https://github.com/anthonyiscoding",
   },
   aboutMe:
-    "Simply put I love getting developers excited and making sure the communities and products I represent consistently wow them.",
+    "I love getting developers excited and making sure the communities and products I represent consistently wow them.",
   skills: [
+    "AI",
+    "LLMs",
+    "RAG",
     "Python",
     "PyTorch Lightning", 
     "TypeScript / JavaScript",
     "React",
     "Next.js",
-    "Remix",
     "Node.js",
     "Express",
     "SQL",
     "Postgres", 
     "MongoDB",
     "Docker",
-    "Github",
-    "Markdown"
   ],
   projects: [
     {
