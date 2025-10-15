@@ -12,7 +12,7 @@ export const siteConfig = {
     github: "https://github.com/anthonyiscoding",
   },
   aboutMe:
-    "I excel at understanding customer needs and translating them into compelling product demonstrations and solutions. I love getting people excited about technology and ensuring that the products I represent consistently wow them.",
+    "I love understanding customer needs and translating them into compelling product demonstrations and solutions. At then end of the day I want to get developers excited about products that will consistently wow them.",
   skills: [
     "AI",
     "LLMs",
