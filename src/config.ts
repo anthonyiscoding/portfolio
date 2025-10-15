@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Anthony Lusardi",
-  title: "Community Engineer & Builder",
+  title: "Engineer & Developer Advocate",
   description: "Portfolio website of Anthony Lusardi",
   accentColor: "#1d4ed8",
   secondaryAccentColor: "#e2882e",
@@ -11,7 +11,7 @@ export const siteConfig = {
     github: "https://github.com/anthonyiscoding",
   },
   aboutMe:
-    "I love getting people excited and making sure the products and developer communities that I represent consistently wow them.",
+    "I excel at understanding customer needs and translating them into compelling product demonstrations and solutions. I love getting people excited about technology and ensuring that the products I represent consistently wow them.",
   skills: [
     "AI",
     "LLMs",
@@ -34,28 +34,28 @@ export const siteConfig = {
     {
       name: "vision-chess",
       description:
-        "Training auto-regressive transformer models to play chess like humans using modern machine learning techniques and PyTorch.",
+        "An open-source project training auto-regressive transformers to play chess like humans, demonstrating cutting-edge ML techniques and their application to complex problem-solving.",
       link: "https://github.com/anthonyiscoding/vision-chess",
       skills: ["Python", "PyTorch", "Machine Learning", "AI"],
     },
     {
       name: "Developer Community Programs",
       description:
-        "Built and scaled developer community programs from the ground up, growing communities to thousands of active users through strategic content, engagement, events, and educational initiatives.",
+        "Designed and scaled developer community programs from scratch, growing them to thousands of active users by creating strategic content, fostering engagement, and delivering high-value educational initiatives.",
       link: "https://captivate.dev",
       skills: ["Community Building", "Developer Relations", "Content Strategy"],
     },
     {
       name: "Buckled.io",
       description:
-        "A functional demo that leverages cost-effective AI providers to deliver realtime car diagnostics and quotes to clients while producing sales leads for service centers. The demo is able to provide over 10,000 quotes for under $1.",
+        "A functional demo showcasing how to leverage cost-effective AI to deliver realtime car diagnostics and quotes, generating high-quality sales leads for service centers at an extremely low cost (10,000+ quotes for under $1).",
       link: "https://buckled-demo.vercel.app/",
       skills: ["TypeScript", "Next.js", "Instructor", "Tailwind"],
     },
     {
       name: "Auto-Questionnaire",
       description:
-        "An on-going project to ingest unstructured questionnaires and produce brand new questionnaires that conform to client needs. Primarily targeted at market research clients but with broad applicability to many other industries. This one is still under active development so reach out if you want to see a demo.",
+        "An active project that ingests unstructured questionnaires and automatically generates new, client-specific versions. This solution is designed to save significant time and resources for market research firms and has broad applicability to other industries. It is under active development so reach out if you want to see more.",
       link: "https://zcal.co/captivate/quickchat",
       skills: ["Python & TypeScript", "Next.js", "Instructor"],
     },
@@ -67,8 +67,9 @@ export const siteConfig = {
       dateRange: "July 2025 - Present",
       bullets: [
         "Building AI-based solutions for clients that turn unstructured text data into actionable and effective tools.",
+        "Developing proofs-of-concept and demos to showcase the value of AI solutions to potential customers.",
         "Working on an open-source chess experiment to teach an AI to play chess with Transformers.",
-        "Strong focus on developing cost-effective solutions that solve real-world problems.",
+        "Strong focus on cost-effective solutions that solve real-world problems.",
       ],
     },
     {
@@ -76,7 +77,7 @@ export const siteConfig = {
       title: "Developer Relations Engineer",
       dateRange: "Dec 2024 - July 2025",
       bullets: [
-        "Designed and executed a strategic program for ecosystem growth, including building technical demos.",
+        "Designed and executed a strategic program for ecosystem growth, including building technical demos and proofs-of-concept.",
         "Created comprehensive technical demos, video tutorials, and SDK documentation to drive awareness, acquisition, and activation.",
         "Spoke regularly at conferences and engaged with developer communities to build brand awareness.",
       ],
@@ -87,8 +88,8 @@ export const siteConfig = {
       dateRange: "Aug 2021 - Aug 2024",
       bullets: [
         "Led developer advocacy initiatives and community engagement programs that resulted in massive developer community activity.",
-        "Started and organized a cross-company initiative to build a developer feedback pipeline that translated directly into the product roadmap.",
-        "Created regular technical content and educational resources for the developer community.",
+        "Initiated and managed a cross-company developer feedback pipeline that directly influenced the product roadmap.",
+        "Created compelling technical content, demos, and educational resources to showcase product capabilities.",
         "Mentored junior advocates on content strategy, production, and presentation skills.",
       ],
     },
@@ -98,8 +99,8 @@ export const siteConfig = {
       dateRange: "Jan 2020 - Aug 2021",
       bullets: [
         "Built the DAML developer community program from the ground up, growing it to hundreds of active users.",
-        "Led outreach and educational programs, including meetups, conferences, blog posts, and demos.",
-        "Functioned as a subject matter expert who communicated DAML to both technical and business-focused audiences.",
+        "Led outreach and educational programs, including meetups, conferences, blog posts, and demos to illustrate product value.",
+        "Functioned as a subject matter expert, effectively communicating technical concepts to both technical and business-focused audiences.",
       ],
     },
     {
@@ -107,8 +108,8 @@ export const siteConfig = {
       title: "Founder",
       dateRange: "Apr 2015 - Jan 2020",
       bullets: [
-        "Developed and delivered robotic process automation (RPA) solutions for large multi-national clients.",
-        "Strong year over year revenue growth through effective stakeholder management and consistent delivery of high-value automated solutions.",
+        "Developed and delivered robotic process automation (RPA) solutions for large multi-national clients, addressing key business challenges.",
+        "Achieved strong year-over-year revenue growth through effective stakeholder management and consistent delivery of high-value automated solutions.",
       ],
     },
   ],
