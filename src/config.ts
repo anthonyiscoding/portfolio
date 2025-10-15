@@ -5,6 +5,7 @@ export const siteConfig = {
   accentColor: "#1d4ed8",
   secondaryAccentColor: "#e2882e",
   social: {
+    meet: "https://zcal.co/captivate/quickchat",
     email: null,
     linkedin: "https://linkedin.com/in/alusardi",
     twitter: null,

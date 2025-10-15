@@ -34,6 +34,37 @@ import { siteConfig } from "../config";
         class="mt-8 sm:mt-10 md:mt-12 flex gap-x-4 sm:gap-x-6 md:gap-x-8 text-gray-700 animate-fade-in animation-delay-600"
       >
         {
+          siteConfig.social?.meet && (
+            <a
+              href={siteConfig.social.meet}
+              aria-label="Meet"
+              class="transition-colors duration-300 hover:text-[var(--accent-color)]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"
+                />
+              </svg>
+            </a>
+          )
+        }
+        {
           siteConfig.social?.email && (
             <a
               href={`mailto:${siteConfig.social.email}`}
