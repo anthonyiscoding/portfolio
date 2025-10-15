@@ -40,7 +40,7 @@ import "../styles/global.css";
       <!-- Animated line with spark -->
       <svg
         id="animated-line"
-        class="absolute top-0 left-0 -z-10 pointer-events-none"
+        class="absolute hidden lg:block top-0 left-0 -z-10 pointer-events-none"
         style="width: 100%; height: 100%;"
       >
         <defs>
@@ -168,6 +168,10 @@ import "../styles/global.css";
         updateLine();
       });
 
+      document.addEventListener("resize", () => {
+        updateLine();
+      });
+
       function updateLine() {
         if (!linePath || !spark) return;
 
@@ -179,12 +183,12 @@ import "../styles/global.css";
           svg.style.height = `${totalDocHeight}px`;
         }
 
-        const startX = 24;
-        const startY = 0;
+        const startX = 8;
+        const startY = 20;
 
-        // Line
-        const horizontalSegment = svgWidth * 0.1; // How far each horizontal segment goes
-        const verticalSegment = horizontalSegment * 5; // Same for vertical
+        const horizontalSegment =
+          svgWidth > 1390 ? svgWidth * 0.1 : svgWidth * 0.05; // How far each horizontal segment goes
+        const verticalSegment = horizontalSegment * 6; // Same for vertical
 
         const totalLength = window.scrollY + window.innerHeight;
 
@@ -273,7 +277,7 @@ import "../styles/global.css";
         }
       }
 
-      updateLine();
+      // updateLine();
     </script>
   </body>
 </html>
