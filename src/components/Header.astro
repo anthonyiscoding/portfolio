@@ -8,15 +8,16 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 
 <header
   id="header"
-  class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
+  class="fixed top-0 right-0 left-0 z-50 hidden md:block transition-all duration-300"
+  style="mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);"
 >
-  <nav class="max-w-6xl mx-auto px-8 py-4 relative">
+  <nav class="mx-auto px-8 py-4 md:py-6 relative flex justify-end">
     <div
-      class="absolute inset-0 bg-white rounded-full"
-      style="mask-image: linear-gradient(to right, transparent 0%, white 15%, white 85%, transparent 100%), linear-gradient(to bottom, white 0%, white 70%, transparent 100%); mask-composite: intersect; -webkit-mask-image: linear-gradient(to right, transparent 0%, white 15%, white 85%, transparent 100%), linear-gradient(to bottom, white 0%, white 70%, transparent 100%); -webkit-mask-composite: source-in;"
+      class="absolute right-0 top-0 bottom-0 left-1/2 bg-white"
+      style="mask-image: linear-gradient(to right, transparent 0%, white 20%, white 100%), linear-gradient(to bottom, white 0%, white 70%, transparent 100%); mask-composite: intersect; -webkit-mask-image: linear-gradient(to right, transparent 0%, white 20%, white 100%), linear-gradient(to bottom, white 0%, white 70%, transparent 100%); -webkit-mask-composite: source-in;"
     >
     </div>
-    <ul class="flex items-center gap-8 justify-center relative z-10">
+    <ul class="flex items-center gap-8 justify-end relative z-10 mb-8">
       <li>
         <a
           href="#about"
