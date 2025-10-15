@@ -11,7 +11,7 @@ export const siteConfig = {
     github: "https://github.com/anthonyiscoding",
   },
   aboutMe:
-    "I love getting people excited and making sure the communities and products I represent consistently wow them.",
+    "I love getting people excited and making sure the products and developer communities that I represent consistently wow them.",
   skills: [
     "AI",
     "LLMs",
@@ -46,12 +46,17 @@ export const siteConfig = {
       skills: ["Community Building", "Developer Relations", "Content Strategy"],
     },
     {
-      name: "Technical Content & Documentation",
+      name: "Buckled.io",
       description:
-        "Created comprehensive technical documentation, SDK guides, video tutorials, and educational content to improve developer adoption and experience",
-      link: "",
-      skills: ["Technical Writing", "Documentation", "Video Production"],
+        "A functional demo that leverages cost-effective AI providers to deliver realtime car diagnostics and quotes to clients while producing sales leads for service centers. The demo is able to provide over 10,000 quotes for under $1.",
+      link: "https://buckled-demo.vercel.app/",
+      skills: ["TypeScript", "Next.js", "Instructor", "Tailwind"],
     },
+    {
+      name: "Auto-Questionnaire",
+      description: "An on-going project to ingest unstructured questionnaires and produce brand new questionnaires that conform to client needs. Primarily targeted at market research clients but with broad applicability to many other industries. This one is still under active development so reach out if you want to see a demo.",
+      skills: ["Python & TypeScript", "Next.js", "Instructor"]
+    }
   ],
   experience: [
     {

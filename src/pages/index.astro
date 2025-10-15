@@ -358,12 +358,8 @@ import "../styles/global.css";
           const wavePhase = scrollAmount * Math.PI * 6; // 3 full cycles (6π)
           const sizeMultiplier = 1 + Math.sin(wavePhase) * 0.3; // Oscillates between 0.7 and 1.3
 
-          // Add mouse influence to the wave
-          const mouseWave = Math.sin((mouseX + mouseY) * 0.5) * 0.1;
-          const finalMultiplier = sizeMultiplier + mouseWave;
-
-          const ellipseWidth = (800 + xPercent * 15) * finalMultiplier;
-          const ellipseHeight = (1200 + yPercent * 15) * finalMultiplier;
+          const ellipseWidth = (800 + xPercent * 15) * sizeMultiplier;
+          const ellipseHeight = (1200 + yPercent * 15) * sizeMultiplier;
 
           // Calculate hue rotation: full 360° cycle based on scroll progress (0 to 1)
           // Add small mouse influence for interactive feel
