@@ -183,11 +183,11 @@ import "../styles/global.css";
           svg.style.height = `${totalDocHeight}px`;
         }
 
-        const startX = 8;
+        const startX = svgWidth > 1600 ? 24 : 8;
         const startY = 20;
 
         const horizontalSegment =
-          svgWidth > 1450 ? svgWidth * 0.1 : svgWidth * 0.05; // How far each horizontal segment goes
+          svgWidth > 1500 ? svgWidth * 0.1 : svgWidth * 0.05; // How far each horizontal segment goes
         const verticalSegment = horizontalSegment * 6; // Same for vertical
 
         const totalLength = window.scrollY + window.innerHeight;
