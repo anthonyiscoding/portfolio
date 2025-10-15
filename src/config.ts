@@ -3,7 +3,7 @@ export const siteConfig = {
   title: "Engineer & Developer Advocate",
   description: "Portfolio website of Anthony Lusardi",
   accentColor: "#1d4ed8",
-  secondaryAccentColor: "#e2882e",
+  secondaryAccentColor: "#E65800",
   social: {
     meet: "https://zcal.co/captivate/quickchat",
     email: null,
