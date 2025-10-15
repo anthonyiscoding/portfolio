@@ -70,22 +70,16 @@ import "../styles/global.css";
           stroke-width="2"
           fill="none"
           filter="url(#glow)"></path>
-        <circle
-          id="spark"
-          r="4"
-          fill={siteConfig.accentColor}
-          filter="url(#glow)"
-          opacity="0"
-        >
+        <circle id="spark" r="4" fill={siteConfig.accentColor} opacity="0">
           <animate
             attributeName="r"
             values="3;5;3"
-            dur="0.6s"
+            dur="2s"
             repeatCount="indefinite"></animate>
           <animate
             attributeName="opacity"
-            values="0.6;1;0.6"
-            dur="0.6s"
+            values="0.5;0.7;0.5"
+            dur="2s"
             repeatCount="indefinite"></animate>
         </circle>
       </svg>
@@ -154,23 +148,35 @@ import "../styles/global.css";
 
       const baseHSL = hexToHSL(accentColor);
 
+      let ticking = false;
+
       document.addEventListener("mousemove", (e) => {
         mouseX = (e.clientX / window.innerWidth) * 5;
         mouseY = (e.clientY / window.innerHeight) * 5;
-        updateGradient();
+        requestUpdate();
       });
 
       document.addEventListener("scroll", () => {
         scrollAmount =
           window.scrollY /
           (document.documentElement.scrollHeight - window.innerHeight);
-        updateGradient();
-        updateLine();
+        requestUpdate();
       });
 
       window.addEventListener("resize", () => {
-        updateLine();
+        requestUpdate(true); // Force update on resize
       });
+
+      function requestUpdate(force = false) {
+        if (!ticking || force) {
+          window.requestAnimationFrame(() => {
+            updateGradient();
+            updateLine();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
 
       function updateLine() {
         if (!linePath || !spark) return;
@@ -183,6 +189,7 @@ import "../styles/global.css";
           svg.style.height = `${totalDocHeight}px`;
         }
 
+        // TODO: Make this actually responsive and not this hacky nonsense
         const startX = svgWidth > 1600 ? 24 : 8;
         const startY = 20;
 
@@ -277,8 +284,8 @@ import "../styles/global.css";
         }
       }
 
-      // Initialize the line on page load
-      updateLine();
+      // Initialize on page load
+      requestUpdate(true);
     </script>
   </body>
 </html>
