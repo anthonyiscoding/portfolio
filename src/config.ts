@@ -42,7 +42,7 @@ export const siteConfig = {
     {
       name: "Developer Community Programs",
       description:
-        "Designed and scaled developer community programs from scratch, growing them to thousands of active users by creating strategic content, fostering engagement, and delivering high-value educational initiatives.",
+        "Designed and scaled developer community programs from scratch, growing them to thousands of active users by creating strategic content, fostering engagement, and delivering high-value educational initiatives. These initiatives resulted in significant increases to paying developer users.",
       link: "https://captivate.dev",
       skills: ["Community Building", "Developer Relations", "Content Strategy"],
     },
@@ -91,7 +91,7 @@ export const siteConfig = {
         "Led developer advocacy initiatives and community engagement programs that resulted in massive developer community activity.",
         "Initiated and managed a cross-company developer feedback pipeline that directly influenced the product roadmap.",
         "Created compelling technical content, demos, and educational resources to showcase product capabilities.",
-        "Mentored junior advocates on content strategy, production, and presentation skills.",
+        "Regularly trained, assisted, and advocated for two junior Developer Advocates, mentoring them on content strategy, production, and presentation skills.",
       ],
     },
     {
@@ -105,12 +105,32 @@ export const siteConfig = {
       ],
     },
     {
+      company: "ETC Cooperative",
+      title: "Program Manager",
+      dateRange: "Feb 2018 - Apr 2019",
+      bullets: [
+        "Oversaw the program for funding, development, and improvement of key projects within the ETC volunteer user and developer ecosystem.",
+        "Led program planning, production, and execution for an international conference and local community meetups.",
+        "Managed a direct report, set KPIs, handled budget, and managed all stakeholder relationships.",
+      ],
+    },
+    {
       company: "Novl Consulting",
       title: "Founder",
       dateRange: "Apr 2015 - Jan 2020",
       bullets: [
         "Developed and delivered robotic process automation (RPA) solutions for large multi-national clients, addressing key business challenges.",
         "Achieved strong year-over-year revenue growth through effective stakeholder management and consistent delivery of high-value automated solutions.",
+      ],
+    },
+    {
+      company: "Ipsos",
+      title: "Project Manager",
+      dateRange: "May 2011 - Apr 2015",
+      bullets: [
+        "Managed national and international clients across multiple industries including Anheuser-Busch InBev, Unilever, and Colgate.",
+        "Responsible for all aspects of project management: design, proposals, client management, and reporting.",
+        "Managed operational teams of 5-15 on a per-project basis.",
       ],
     },
   ],
