@@ -4,6 +4,7 @@ import { siteConfig } from "../config";
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+const hasMeet = siteConfig.social?.meet && siteConfig.social.meet.length > 0;
 ---
 
 <footer class="relative bg-gray-50 border-t border-gray-200">
@@ -19,6 +20,39 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
           {siteConfig.title}
         </p>
         <div class="flex gap-x-6">
+          {
+            hasMeet && (
+              <a
+                href={siteConfig.social.meet}
+                aria-label="Meet"
+                class="text-gray-600 transition-colors duration-300 hover:text-[var(--accent-color)]"
+                style={`--accent-color: ${siteConfig.accentColor}`}
+                target="_blank"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-6 w-6"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"
+                  />
+                </svg>
+              </a>
+            )
+          }
           {
             siteConfig.social?.email && (
               <a
