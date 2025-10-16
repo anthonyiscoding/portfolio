@@ -1,8 +1,6 @@
 > [!IMPORTANT]
 > This is a significantly modified fork of [Ryan Fitzgerald's DevPortfolio](https://github.com/RyanFitzgerald/devportfolio) for [my own portfolio site](https://anthonylusardi.com). If you want to start your own it would be best to start with Ryan's fork.
 
-<img width="1943" height="1093" alt="image" src="https://github.com/user-attachments/assets/cc2ff955-17c2-48c7-81c8-479a0f061850" />
-
 # DevPortfolio Template
 
 A modern, minimalist portfolio template built with Astro and Tailwind CSS. Perfect for developers looking to showcase their skills, experience, and projects in a clean, professional way.
