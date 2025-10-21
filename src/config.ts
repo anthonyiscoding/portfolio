@@ -31,7 +31,6 @@ export const siteConfig = {
     "MongoDB",
     "Docker",
     "C# / .NET",
-    "And a whole bunch of other things",
   ],
   projects: [
     {
