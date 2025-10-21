@@ -35,6 +35,13 @@ export const siteConfig = {
   ],
   projects: [
     {
+      name: "Buckled.io",
+      description:
+        "A functional demo showcasing how to leverage cost-effective AI to deliver realtime car diagnostics and quotes, generating high-quality sales leads for service centers at an extremely low cost (10,000+ quotes for under $1).",
+      link: "https://buckled-demo.vercel.app/",
+      skills: ["TypeScript", "Next.js", "Instructor", "Tailwind"],
+    },
+    {
       name: "vision-chess",
       description:
         "An open-source project training auto-regressive transformers to play chess like humans, demonstrating cutting-edge ML techniques and their application to complex problem-solving.",
@@ -47,13 +54,6 @@ export const siteConfig = {
         "Designed and scaled developer community programs from scratch, growing them to thousands of active users by creating strategic content, fostering engagement, and delivering high-value educational initiatives.",
       link: "https://captivate.dev",
       skills: ["Community Building", "Developer Relations", "Content Strategy"],
-    },
-    {
-      name: "Buckled.io",
-      description:
-        "A functional demo showcasing how to leverage cost-effective AI to deliver realtime car diagnostics and quotes, generating high-quality sales leads for service centers at an extremely low cost (10,000+ quotes for under $1).",
-      link: "https://buckled-demo.vercel.app/",
-      skills: ["TypeScript", "Next.js", "Instructor", "Tailwind"],
     },
     {
       name: "Auto-Questionnaire",
