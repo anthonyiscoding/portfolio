@@ -83,7 +83,7 @@ export const siteConfig = {
       bullets: [
         "Designed and executed a strategic program for ecosystem growth, including building technical demos and proofs-of-concept.",
         "Created comprehensive technical demos, video tutorials, and SDK documentation to drive awareness, acquisition, and activation.",
-        "Spoke regularly at conferences and engaged with developer communities to build brand awareness.",
+        "Acted as a key technical presenter at industry conferences, generating leads and building brand awareness.",
       ],
     },
     {
@@ -102,6 +102,7 @@ export const siteConfig = {
       title: "Developer Advocate",
       dateRange: "Jan 2020 - Aug 2021",
       bullets: [
+        "Partnered directly with Sales and Client Success teams to secure technical wins and drive adoption of DAML within key enterprise accounts.",
         "Built the DAML developer community program from the ground up, growing it to hundreds of active users.",
         "Led outreach and educational programs, including meetups, conferences, blog posts, and demos to illustrate product value.",
         "Functioned as a subject matter expert, effectively communicating technical concepts to both technical and business-focused audiences.",
@@ -112,6 +113,7 @@ export const siteConfig = {
       title: "Founder",
       dateRange: "Apr 2015 - Jan 2020",
       bullets: [
+        "Led the full sales cycle from client acquisition to final delivery of custom RPA solutions for enterprise market research clients.",
         "Developed and delivered robotic process automation (RPA) solutions for large multi-national clients, addressing key business challenges.",
         "Achieved strong year-over-year revenue growth through effective stakeholder management and consistent delivery of high-value automated solutions.",
       ],
