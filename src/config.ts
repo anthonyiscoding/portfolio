@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Anthony Lusardi",
-  title: "Sales Engineer & Developer Advocate",
+  title: "Sales & Developer Relations",
   description: "Portfolio website of Anthony Lusardi",
   accentColor: "#1d4ed8",
   secondaryAccentColor: "#e2882e",
@@ -18,7 +18,9 @@ export const siteConfig = {
     "LLMs",
     "RAG",
     "Solution Architecture",
-    "Sales Engineering",
+    "Developer Advocacy",
+    "Sales",
+    "Community Building",
     "Python",
     "PyTorch Lightning",
     "TypeScript / JavaScript",
